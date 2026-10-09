@@ -508,3 +508,42 @@ Password: Use the demo credentials provided separately by the project maintainer
 2. Create a feature branch.
 3. Make and test your changes.
 4. Submit a pull request.
+
+## Live Demo
+
+Dashboard: https://whistledrop-1-s77z.onrender.com/dashboard/
+
+API Documentation: https://whistledrop-1-s77z.onrender.com/docs
+
+## Run Locally
+
+1. Clone the repository:
+   `git clone https://github.com/ShineKaninwal/whistledrop.git`
+
+2. Enter the folder:
+   `cd whistledrop`
+
+3. Create a virtual environment:
+   `python -m venv .venv`
+
+4. Activate it:
+   `.\.venv\Scripts\Activate.ps1`
+
+5. Install dependencies:
+   `pip install -r requirements.txt`
+
+6. Copy `.env.example` to `.env` and configure your environment variables. Never commit `.env` or publish real passwords.
+
+7. Create a moderator account:
+   `python -m app.create_moderator --username admin`
+
+8. Start the application:
+   `python -m uvicorn app.main:app --reload`
+
+9. Open `http://127.0.0.1:8000/`.
+
+## Demo Login
+
+Username: `admin`
+
+Ask the project maintainer for the current demo password. Do not publish real passwords in this public repository.
