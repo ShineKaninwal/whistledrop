@@ -378,3 +378,68 @@ curl -X PATCH http://localhost:8000/api/moderator/reports/WD-7K4P9X2M/status \
 - A per-report secret in addition to the case code, or two-way anonymous messaging so moderators can ask follow-up questions
 - Database migrations (Alembic) and PostgreSQL for multi-instance deployments
 - Optional Tor onion service for stronger network anonymity
+
+## Live Demo
+
+Dashboard: https://whistledrop-1-s77z.onrender.com/dashboard/
+
+API Documentation: https://whistledrop-1-s77z.onrender.com/docs
+
+## Run Locally
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/ShineKaninwal/whistledrop.git
+cd whistledrop
+```
+
+### 2. Create and activate a virtual environment
+
+Windows PowerShell:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+
+### 3. Install dependencies
+
+```powershell
+pip install -r requirements.txt
+```
+
+### 4. Configure environment variables
+
+Copy `.env.example` to `.env` and configure the required settings.
+Use a unique secret key and a strong moderator password.
+Never commit `.env` or publish real passwords.
+
+### 5. Create a moderator account
+
+```powershell
+python -m app.create_moderator --username admin
+```
+
+Follow the prompts to set the moderator password.
+
+### 6. Start the application
+
+```powershell
+python -m uvicorn app.main:app --reload
+```
+
+Open http://127.0.0.1:8000/ in your browser.
+
+## Demo Login
+
+Username: `admin`
+
+Password: Use the demo credentials provided separately by the project maintainer. For security, passwords are not stored in this public README.
+
+## Contributing
+
+1. Fork this repository.
+2. Create a feature branch.
+3. Make and test your changes.
+4. Submit a pull request.
