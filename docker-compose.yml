@@ -1,0 +1,21 @@
+services:
+  whistledrop:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      # Values come from your shell or a .env file next to this file.
+      # The fallbacks below are for LOCAL DEMOS ONLY: APP_ENV=production refuses them.
+      APP_ENV: ${APP_ENV:-development}
+      SECRET_KEY: ${SECRET_KEY:-}
+      MODERATOR_USERNAME: ${MODERATOR_USERNAME:-moderator}
+      MODERATOR_PASSWORD: ${MODERATOR_PASSWORD:-moderator-demo-pass}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:8000,http://127.0.0.1:8000}
+      ACCESS_TOKEN_MINUTES: ${ACCESS_TOKEN_MINUTES:-60}
+      DATABASE_URL: sqlite:////data/whistledrop.db
+    volumes:
+      - whistledrop-data:/data
+    restart: unless-stopped
+
+volumes:
+  whistledrop-data:
